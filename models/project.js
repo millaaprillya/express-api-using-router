@@ -1,19 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    "User",
+  const Project = sequelize.define(
+    "Project",
     {
-      firstName: DataTypes.STRING,
-      lastName: DataTypes.STRING,
-      email: DataTypes.STRING,
-      password: DataTypes.STRING,
+      title: DataTypes.STRING,
+      imageUrl: DataTypes.STRING,
+      description: DataTypes.TEXT,
+      userId: DataTypes.INTEGER,
     },
     {}
   );
-  User.associate = function (models) {
+  Project.associate = function (models) {
     // associations can be defined here
-    User.hasMany(models.Project, {
+    Project.belongsTo(models.User, {
       foreignKey: "userId",
+      onDelete: "CASCADE",
     });
   };
-  return User;
+  return Project;
 };
