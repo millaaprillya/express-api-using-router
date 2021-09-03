@@ -2,17 +2,21 @@ module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define(
     "Book",
     {
-      author_id: DataTypes.STRING,
-      title: DataTypes.STRING,
-      publish: DataTypes.STRING,
+      // Define attributes
+      author_id: {
+        type: DataTypes.STRING,
+      },
+      title: {
+        type: DataTypes.STRING,
+      },
+      publish: {
+        type: DataTypes.STRING,
+      },
     },
-    {}
+    {
+      // Freeze Table Name
+      freezeTableName: true,
+    }
   );
-  Book.associate = function (models) {
-    // associations can be defined heare
-    Book.hasMany(models.Book, {
-      foreignKey: "userId",
-    });
-  };
   return Book;
 };

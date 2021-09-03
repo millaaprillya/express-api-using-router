@@ -9,7 +9,6 @@ const createUser = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
-
 const getUser = async (req, res) => {
   try {
     const getData = await User.findAll(req.params);
@@ -20,7 +19,25 @@ const getUser = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
+
+const putUser = async (req, res) => {
+  try {
+    const updateUser = await User.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.status(201).json({
+      updateUser,
+      status: "Data berhasil di update",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ error: error.message });
+  }
+};
 module.exports = {
   createUser,
   getUser,
+  putUser,
 };
