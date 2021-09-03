@@ -9,6 +9,18 @@ const createUser = async (req, res) => {
     return res.status(500).json({ error: error.message });
   }
 };
+
+const getUser = async (req, res) => {
+  try {
+    const getData = await User.findAll(req.params);
+    return res.status(201).json({
+      getData,
+    });
+  } catch (error) {
+    return res.status(500).json({ error: error.message });
+  }
+};
 module.exports = {
   createUser,
+  getUser,
 };
