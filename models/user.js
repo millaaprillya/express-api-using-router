@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define(
-    "User",
+  const Users = sequelize.define(
+    "Users",
     {
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
@@ -9,11 +9,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  User.associate = function (models) {
+  Users.associate = function (models) {
     // associations can be defined heare
     // User.hasMany(models.Project, {
     //   foreignKey: "id",
     // });
   };
-  return User;
+  return Users;
 };

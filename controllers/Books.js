@@ -1,4 +1,4 @@
-const { Book } = require("../models");
+const { Books } = require("../models");
 
 const getBook = async (req, res) => {
   try {

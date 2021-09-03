@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
-  const Book = sequelize.define(
-    "Book",
+  const Books = sequelize.define(
+    "Books",
     {
       // Define attributes
       author_id: {
@@ -18,5 +18,5 @@ module.exports = (sequelize, DataTypes) => {
       freezeTableName: true,
     }
   );
-  return Book;
+  return Books;
 };
